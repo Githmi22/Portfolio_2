@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Druwin Pathirage | Portfolio</title>
+
+  <!-- CHANGE: Update your page title above -->
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #e2e8f0;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
+      padding: 60px 0;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-text h1 {
+      font-size: 52px;
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+
+    .hero-text h1 span {
+      color: #38bdf8;
+    }
+
+    .hero-text h2 {
+      font-size: 24px;
+      font-weight: normal;
+      color: #cbd5e1;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 17px;
+      color: #cbd5e1;
+      max-width: 600px;
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    .btn-primary:hover {
+      background: #0ea5e9;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+    }
+
+    .btn-outline:hover {
+      background: #38bdf8;
+      color: #0f172a;
+      transform: translateY(-2px);
+    }
+
+    .hero-image {
+      text-align: center;
+    }
+
+    .hero-image img {
+      width: 320px;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #38bdf8;
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.35);
+    }
+
+    /* SECTION */
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      font-size: 34px;
+      text-align: center;
+      margin-bottom: 50px;
+      color: #38bdf8;
+    }
+
+    /* ABOUT */
+    .about {
+      background: #111827;
+    }
+
+    .about-content {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      color: #cbd5e1;
+      font-size: 18px;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: #1e293b;
+      padding: 24px;
+      border-radius: 18px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-6px);
+      border-color: #38bdf8;
+    }
+
+    .skill-card h3 {
+      color: #f8fafc;
+      margin-bottom: 8px;
+    }
+
+    .skill-card p {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    /* PROJECTS */
+    .projects {
+      background: #111827;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: #1e293b;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: 0.3s;
+      margin-bottom: 25px;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: #38bdf8;
+    }
+
+    .project-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+    .project-info {
+      padding: 22px;
+    }
+
+    .project-info h3 {
+      margin-bottom: 10px;
+      color: #f8fafc;
+    }
+
+    .project-info p {
+      color: #cbd5e1;
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .project-links a {
+      font-size: 14px;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    /* CONTACT */
+    .contact-content {
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+      color: #cbd5e1;
+    }
+
+    .contact-links {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      background: #1e293b;
+      padding: 12px 18px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.3s;
+    }
+
+    .contact-links a:hover {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 24px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: #94a3b8;
+      background: #0b1220;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 40px;
+      }
+
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-image img {
+        width: 240px;
+        height: 240px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .hero-text h1 {
+        font-size: 32px;
+      }
+
+      .hero-text h2 {
+        font-size: 20px;
+      }
+
+      .nav-wrapper {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="container nav-wrapper">
+      <div class="logo">Druwin Pathirage</div>
+      <!-- CHANGE: Replace YourName -->
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Hello, I'm <span>Druwin Pathirage</span></h1>
+        <!-- CHANGE: Replace Your Name -->
+
+        <h2>Brand Strategy & Marketing Professional</h2>
+        <!-- CHANGE: Replace with your role -->
+
+        <p>
+          Strategically minded brand professional specializing in creative development,
+          data-driven insights, and integrated campaign execution within FMCG. 
+          I blend creativity with analytics to deliver globally aligned and locally relevant
+          campaigns that strengthen brand equity and drive market growth.
+        </p>
+        <!-- CHANGE: Replace with your intro -->
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img src="profilepic.jpg" alt="Profile Picture" />
+        <!-- CHANGE: Keep this file name if your image is still profilepic.jpg -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <p>
+          I am a brand and marketing professional with hands-on experience developing
+          high-impact campaigns in fast-paced FMCG environments. My work focuses on
+          combining consumer insights, creative strategy, and analytics to deliver
+          effective brand communications that drive measurable business results.
+
+          I currently work as a Brands Executive at Ceylon Tobacco Company where I lead
+          creative development, collaborate with global agencies, and translate market
+          data into strategic brand initiatives.
+
+          I am passionate about marketing strategy, brand storytelling, and building
+          campaigns that connect meaningfully with consumers.
+        </p>
+        <!-- CHANGE: Replace with your real about paragraph -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">My Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Brand Strategy</h3>
+          <p>Developing positioning, value propositions, and communication strategy.</p>
+        </div>
+        <div class="skill-card">
+          <h3>Marketing Analyst</h3>
+          <p>Using data insights, segmentation, and performance metrics.</p>
+        </div>
+        <div class="skill-card">
+          <h3>Creative Campaign Development</h3>
+          <p>Leading multi-channel brand campaigns with agencies.</p>
+        </div>
+        <div class="skill-card">
+          <h3>Power BI</h3>
+          <p>Building dashboards and analyzing performance data.</p>
+        </div>
+        <div class="skill-card">
+          <h3>Power Apps</h3>
+          <p>Building internal tools & automation apps. </p>
+        </div>
+        <div class="skill-card">
+          <h3>Microsoft Excel</h3>
+          <p>Advanced analytics, reporting, and business modeling. </p>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+<section id="experience">
+<div class="container">
+<h2 class="section-title">Professional Experience</h2>
+
+<div class="project-card">
+<div class="project-info">
+<h3>Brands Executive — Ceylon Tobacco Company</h3>
+<p>2024 – Present</p>
+<p>
+Leading creative development and brand communication strategy while
+integrating consumer insights and analytics to deliver impactful campaigns
+that strengthen brand equity and grow market share.
+</p>
+</div>
+</div>
+
+<div class="project-card">
+<div class="project-info">
+<h3>Planning Insight Analyst — Ceylon Tobacco Company</h3>
+<p>2022 – 2024</p>
+<p>
+Analyzed macro, market, and consumer data to generate actionable insights
+that supported strategic decision-making and business improvement.
+</p>
+</div>
+</div>
+
+<div class="project-card">
+<div class="project-info">
+<h3>Consumer Support Specialist — Ideal Motors</h3>
+<p>2019 – 2022</p>
+<p>
+Delivered customer insights, resolved high-volume service issues, and
+collaborated with product and marketing teams to improve customer experience.
+</p>
+</div>
+</div>
+
+<div class="project-card">
+<div class="project-info">
+<h3>Travel Consultant — Travel Center UK</h3>
+<p>2019 – 2022</p>
+<p>
+Delivered customer insights, resolved high-volume service issues, and
+collaborated with product and marketing teams to improve customer experience.
+</p>
+</div>
+</div>
+
+</div>
+</section>
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <h2 class="section-title">My Projects</h2>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-image">
+          <img src="jpgl_campaign.jpg" alt="JPGL Campaign">
+          </div>
+          <div class="project-info">
+            <h3>John Player Gold Leaf 60 Year Anniversary Campaign</h3>
+            <p>
+              Led strategic and creative development of the tactical campaign
+              celebrating the 60-year legacy of John Player Gold Leaf,
+              aligning brand storytelling with modern consumer aspirations.
+            </p>
+            <div class="project-links">
+              <a href="#">Live Demo</a>
+              <a href="#">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+           <div class="project-image">
+          <img src="DHBC2.0.jpg" alt="Dunhill Brand Code 2.0">
+          </div>
+          <div class="project-info">
+            <h3>Dunhill Brand Code 2.0</h3>
+            <p>
+              Developed brand communication frameworks and creative concepts
+aligned with global Dunhill brand codes while adapting execution
+to the Sri Lankan market.
+            </p>
+            <div class="project-links">
+              <a href="#">Live Demo</a>
+              <a href="#">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">Project 03</div>
+          <div class="project-info">
+            <h3>Landing Page Design</h3>
+            <p>
+              A visually appealing landing page focused on good layout, strong hierarchy, and responsive design.
+            </p>
+            <div class="project-links">
+              <a href="#">Live Demo</a>
+              <a href="#">GitHub</a>
+            </div>
+          </div>
+
+
+          
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+<section id="experience">
+<div class="container">
+<h2 class="section-title">Academic Qualifications</h2>
+    <div class="project-card">
+<div class="project-info">
+<h3>Bachelor of Business – Marketing Management</h3>
+<p>Edith Cowan University, Australia</p>
+<p>GPA: 4.0</p>
+</div>
+</div>
+
+<div class="project-card">
+<div class="project-info">
+<h3>London Advanced Level – Edexcel</h3>
+<p>Gateway College, Rajagiriya</p>
+</div>
+</div>
+
+<div class="project-card">
+<div class="project-info">
+<h3>London Ordinary Level – Edexcel</h3>
+<p>CSI College, Kalubowila</p>
+</div>
+</div>
+
+</div>
+</section>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Me</h2>
+      <div class="contact-content">
+        <p>
+         Feel free to connect with me regarding marketing strategy,
+          brand development, or collaboration opportunities.
+        </p>
+
+        <div class="contact-links">
+          <a href="druwinpathirage@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/druwin-pathirage-7608b7191/ " target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Druwin Pathirage. All Rights Reserved.</p>
+    <!-- CHANGE: Replace Your Name -->
+  </footer>
+
+</body>
+</html>
